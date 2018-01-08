@@ -1404,3 +1404,22 @@ endif
 setlocal ts=4 sts=4 sw=4 noet
 compiler nodelint
 
+## ******************************
+:set list listchars=tab:>-,trail:.,extends:>
+" Enter the middle-dot by pressing Ctrl-k then .M
+:set list listchars=tab:\|_,trail:·
+" Enter the right-angle-quote by pressing Ctrl-k then >>
+:set list listchars=tab:»·,trail:·
+" Enter the Pilcrow mark by pressing Ctrl-k then PI
+:set list listchars=tab:>-,eol:¶
+" The command :dig displays other digraphs you can use.
+
+# to change all the existing tabs to spaces
+:retab
+
+## iTerm2
+Cmd+/         Show cursor position
+Option+Cmd+i  Simultaneous input on each session
+Option+Cmd+/  Directories list you visit frequently
+$ open .      Opens current folder in finder
+

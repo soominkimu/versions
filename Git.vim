@@ -118,8 +118,8 @@ $ git branch -d fixing_readmet
 
 $ git reflog      # record of all the times you changed branches (via git checkout)
 
-$ git stash
-$ git stash list
+$ git stash       # to save all your work temprarily (temporary commit)
+$ git stash list  # WIP: Work In Progress
 $ git stash pop
 
 $ git branch -m old_name new_name
@@ -344,3 +344,9 @@ https://github.com/tpope/vim-fugitive
 :Gblame
 :Gstatus
 
+## *************
+# To delete a commit
+$ git rebase --onto master~2 master~1 master    # deletes master~1 commit
+
+$ git rebase --abort
+$ git reset --hard 19e50e0    # rewind to the previous commit
