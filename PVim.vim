@@ -1423,3 +1423,11 @@ Option+Cmd+i  Simultaneous input on each session
 Option+Cmd+/  Directories list you visit frequently
 $ open .      Opens current folder in finder
 
+## ******************************
+Neovim
+$brew install neovim
+" Share vim's config
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
