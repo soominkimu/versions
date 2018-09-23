@@ -350,3 +350,13 @@ $ git rebase --onto master~2 master~1 master    # deletes master~1 commit
 
 $ git rebase --abort
 $ git reset --hard 19e50e0    # rewind to the previous commit
+
+## *************
+# To add a new explicit (other than 'origin') remote
+
+$ git remote set-url dashgon https://ID:PW@github.com/dashgon/reposit.git
+$ git remote -v
+
+## Update all vim plugins recursively
+$ ~/.vim/bundle> find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
+
