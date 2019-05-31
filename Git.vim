@@ -360,3 +360,9 @@ $ git remote -v
 ## Update all vim plugins recursively
 $ ~/.vim/bundle> find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 
+## To upload a local repo to Github (ex, csv2json)
+At first, create a new repo at Github with the same name
+$ git remote add origin https://github.com/soominkimu/csv2json.git
+$ git remote -v
+$ git push -u origin master  # will be requested for the keychain password in Mac
+
