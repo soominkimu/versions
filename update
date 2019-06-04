@@ -1,0 +1,22 @@
+#!/bin/zsh
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+BLUE='\e[0;34m'
+YELLOW='\e[0;33m'
+NC='\e[0m'
+~/z/dev/logo
+print "${GREEN}# brew ${BLUE}update${NC}"
+brew update
+print "${GREEN}# brew ${BLUE}upgrade${NC}"
+brew upgrade
+print "${GREEN}# brew ${BLUE}cleanup${NC}"
+brew cleanup
+print "${GREEN}# brew ${BLUE}doctor${NC}"
+brew doctor
+print "${GREEN}# rustup ${BLUE}update${NC}"
+rustup update
+~/z/dev/versions
+print "...${BLUE}# npm install -g npm@latest${NC}"
+print "...${BLUE}# yarn global upgrade${NC}"
+print "...${BLUE}# nvm install node --reinstall-packages-from=node${NC}"
+print "...${BLUE}# rustup show${NC}"

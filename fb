@@ -1,0 +1,7 @@
+#!/bin/zsh
+if [[ $# -ne 1 ]]
+then
+	echo Need to specify search text
+else
+	find /Volumes/LaCie3TB/Books -iname "*$1*"
+fi

@@ -1,0 +1,34 @@
+#!/bin/zsh
+C_R='\e[0;31m'
+C_G='\e[0;32m'
+C_B='\e[0;34m'
+C_Y='\e[0;33m'
+C_N='\e[0m'
+print "${C_G}┌──────────┬───────────┬────────┐"
+print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest │"
+print "${C_G}└──────────┴───────────┴────────┘"
+NODE_C=`node -v`
+NODE_L=`npm show node@lts version`
+NPM_C=`npm -v`
+NPM_L=`npm show npm version`
+YARN_C=`yarn -v`
+YARN_L=`npm show yarn version`
+CRA_C=`create-react-app --version`
+CRA_L=`npm show create-react-app version`
+RUBY_C=`ruby -v`
+PYTH_C=`python --version`
+PIP3_C=`pip3 --version`
+print "${C_Y}🍏 node : ${C_N}${NODE_C} ${C_G}v${NODE_L}"
+print "${C_Y}🎁 npm  : ${C_N}${NPM_C} ${C_G}${NPM_L}"
+print "${C_Y}🧶  yarn : ${C_N}${YARN_C} ${C_G}${YARN_L}"
+print "${C_Y}🥐 CRA  : ${C_N}${CRA_C} ${C_G}${CRA_L} ${C_B}# create-react-app --version:${C_N}"
+printf "${C_Y}🔮 ruby : ${C_N} "
+printf "${C_Y}🐍 python:${C_N} "
+printf "${C_Y}🐢 pip   :${C_N} "
+print "${C_G}🦎 pip-check for further information${C_N}"
+printf "${C_Y}💎 rustup:${C_N} "
+rustup --version
+printf "${C_Y}⚙️a rustc:${C_N} "
+rustc --version
+printf "${C_Y}📦 cargo:${C_N} "
+cargo --version

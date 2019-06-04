@@ -1,0 +1,9 @@
+#!/bin/zsh
+if [[ $# -ne 1 ]]
+then
+	port=22   # default ssh port
+else
+	port=443  # use HTTPS port instead
+fi
+echo "Connecting AWS EC2 🖥️  😘  using port=$port"
+ssh -i "~/.ssh/BundyDr2017.pem" ubuntu@ec2-54-164-49-51.compute-1.amazonaws.com -p $port

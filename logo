@@ -3,6 +3,9 @@ RED='\e[0;31m'
 GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 YELLOW='\e[0;33m'
+BOLD='\e[1m'
+BBK='\e[49m'
+YBK='\e[43m'
 BK='\e[0;30m'
 DG='\e[1;30m'
 NC='\e[0m'
@@ -11,19 +14,25 @@ TM='\e[1;32m'
 QC='\e[1;35m'
 SY='\e[0;36m'
 DC='\e[0;35m'
-DATE=`date +"%a %B %d (%m/%d/%Y)"`
-TIME=`date +"%H:%M:%S"`
-print "${SP}╔═╗┌─┐┌─┐┌─┐┌─┐${TM}┌┬┐┬┌┬┐┌─┐${QC}╔═╗"
-print "${SP}╚═╗├─┘├─┤│  ├┤ ${TM} │ ││││├┤ ${QC}║═╬╗"
-print "${SP}╚═╝┴  ┴ ┴└─┘└─┘${TM} ┴ ┴┴ ┴└─┘${QC}╚═╝╚${DG} Inc, Yokohama & CA 94583, Since 01/07/2019${NC}"
-print "${SY}███████╗██╗   ██╗███╗   ███╗██████╗  ██████╗ ██╗     ██╗ ██████╗${DC}██████╗ ██████╗"
-print "${SY}██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔═══██╗██║     ██║██╔════╝${DC}╚════██╗██╔══██╗"
-print "${SY}███████╗ ╚████╔╝ ██╔████╔██║██████╔╝██║   ██║██║     ██║██║     ${DC} █████╔╝██║  ██║"
-print "${SY}╚════██║  ╚██╔╝  ██║╚██╔╝██║██╔══██╗██║   ██║██║     ██║██║     ${DC} ╚═══██╗██║  ██║"
-print "${SY}███████║   ██║   ██║ ╚═╝ ██║██████╔╝╚██████╔╝███████╗██║╚██████╗${DC}██████╔╝██████╔╝"
-print "${SY}╚══════╝   ╚═╝   ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═╝ ╚═════╝${DC}╚═════╝ ╚═════╝${NC}"
-print "${DG}Spacetime and Symbolic Evolution${BK} to Singularity ${RED}The Pleasure of the Text${NC}"
-print "${GREEN}${TIME} ${YELLOW}${DATE} ${QC}*****${NC}"
-cal -3
+print "  ${SP}╔═╗┌─┐┌─┐┌─┐┌─┐${TM}┌┬┐┬┌┬┐┌─┐${QC}╔═╗"
+print "  ${SP}╚═╗├─┘├─┤│  ├┤ ${TM} │ ││││├┤ ${QC}║═╬╗"
+print "  ${SP}╚═╝┴  ┴ ┴└─┘└─┘${TM} ┴ ┴┴ ┴└─┘${QC}╚═╝╚${DG} Inc, Yokohama & CA 94583, Since 01/07/2019${NC}"
+print "  ${SY}███████╗██╗   ██╗███╗   ███╗██████╗  ██████╗ ██╗     ██╗ ██████╗${DC}██████╗ ██████╗"
+print "  ${SY}██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔═══██╗██║     ██║██╔════╝${DC}╚════██╗██╔══██╗"
+print "  ${SY}███████╗ ╚████╔╝ ██╔████╔██║██████╔╝██║   ██║██║     ██║██║     ${DC} █████╔╝██║  ██║"
+print "  ${SY}╚════██║  ╚██╔╝  ██║╚██╔╝██║██╔══██╗██║   ██║██║     ██║██║     ${DC} ╚═══██╗██║  ██║"
+print "  ${SY}███████║   ██║   ██║ ╚═╝ ██║██████╔╝╚██████╔╝███████╗██║╚██████╗${DC}██████╔╝██████╔╝"
+print "  ${SY}╚══════╝   ╚═╝   ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═╝ ╚═════╝${DC}╚═════╝ ╚═════╝${NC}"
+print "  🌌 ${DG}Spacetime and Symbolic Evolution${BK} to Singularity ${RED}The Pleasure of the Text 📖${NC}"
+printf "🌏 ${BLUE}"
 uptime
-print "${GREEN}TDL: ${NC}Clockwork, Calendar, "
+TOKYO=`TZ=":Asia/Tokyo"          date +"%H:%M:%S %a %B %d %Y Tokyo         (UTC+9)"`
+PARIS=`TZ=":Europe/Paris"        date +"%H:%M:%S %a %B %d %Y Paris         (UTC+1)"`
+NEWYK=`TZ=":America/New_York"    date +"%H:%M:%S %a %B %d %Y New York      (UTC-5)"`
+LOSAN=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
+print "🗼 ${BK}${YBK}${TOKYO}${BBK}"
+print "🇫🇷  ${RED}${PARIS}"
+print "🗽 ${GREEN}${NEWYK}"
+print "🚊 ${SY}${LOSAN}${NC}"
+cal -3
+print "🔥 ${GREEN}TDL: ${NC}Clockwork, Calendar, Biz={Game, Education, Finance, Messaging, Movies}"
