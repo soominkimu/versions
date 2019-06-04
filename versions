@@ -7,22 +7,22 @@ C_N='\e[0m'
 
 showV ()
 {
-  printf "${C_Y}$1 "
+  printf "${C_Y}$1${C_G}: "
 
   if [ -z "${VC}" ]
   then
-    printf "${C_G}Latest=${VL}"
+    printf "${C_G}✨${VL}"
   else
-    printf "${C_N}${VC} "
+    printf "${C_N}${VC}"
     if [ -z "${VL}" ]
     then
-      printf "${C_G}*"
+      printf "⚡️"
     else
       if [ "${VC}" = "${VL}" ]
       then
-        printf "${C_G}Latest"
+        printf "✨"
       else
-        printf "${C_G}${VL} ${C_R}New!"
+        printf " ${C_G}${VL}${C_R}🌈New!"
       fi
     fi
   fi
@@ -31,57 +31,59 @@ showV ()
   then
     print "${C_N}"
   else
-    print " $2${C_N}"
+    print " ${C_B}$2${C_N}"
   fi
 }
 
-print "${C_G}┌──────────┬───────────┬────────┐"
-print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest │"
-print "${C_G}└──────────┴───────────┴────────┘"
+print "${C_G}┌──────────┬───────────┬──────────┐"
+print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ │"
+print "${C_G}└──────────┴───────────┴──────────┘"
 VC=`node -v`
 VL="v`npm show node@lts version`"
-showV "🍏 node    :"
+showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm -ls"
 
 VC=`npm -v`
 VL=`npm show npm version`
-showV "🎁 npm     :"
+showV "🎁 npm     " "[`npm bin -g`]"
 
 VC=`yarn -v`
 VL=`npm show yarn version`
-showV "🧶  yarn    :"
+showV "🧵  yarn    " "[`yarn global bin`]"
 
 VC=`create-react-app --version`
 VL=`npm show create-react-app version`
-showV "🥐 CRA     :" "${C_B}# create-react-app"
+showV "🥐 CRA     " "# create-react-app"
 
 VC=""
 VL=`npm show react version`
-showV "🍙 react   :"
+showV "🍙 react   "
 
 VC=""
 VL=`npm show react-scripts version`
-showV "🍣 scripts :" "${C_B}# react-scripts"
+showV "🍣 scripts " "# react-scripts"
 
 VC=`ruby -v`
 VL=""
-showV "🔮 ruby    :"
+showV "🔮 ruby    "
 
 VC=`python --version`
 VL=""
-showV "🐍 python  :"
+showV "🐍 python  "
 
 VC=`pip3 --version`
 VL=""
-showV "🐢 pip     :"
-print "${C_B}🦎 pip-check for further informationC_N}"
+showV "🐢 pip     "
+print "             ${C_B}🦎 pip-check for further information${C_N}"
 
 VC=`rustup --version`
 VL=""
-showV "💎 rustup  :"
+showV "💎 rustup  " "# rustup show"
+
 VC=`rustc --version`
 VL=""
-showV "⚙️a rustc   :"
+showV "⚙️a rustc   "
 
 VC=`cargo --version`
 VL=""
-showV "📦 cargo   :"
+showV "📦 cargo   "
+

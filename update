@@ -1,22 +1,29 @@
 #!/bin/zsh
-RED='\e[0;31m'
-GREEN='\e[0;32m'
-BLUE='\e[0;34m'
-YELLOW='\e[0;33m'
-NC='\e[0m'
+C_R='\e[0;31m'
+C_G='\e[0;32m'
+C_B='\e[0;34m'
+C_Y='\e[0;33m'
+C_N='\e[0m'
+
+runCmd ()
+{
+  printf $1
+  if [ -z $3 ]
+  then
+    print "${C_B} $2${C_N}"
+  else
+    print "${C_G} $2 ${C_B}$3${C_N}"
+    $2 $3
+  fi
+}
 ~/z/dev/logo
-print "${GREEN}# brew ${BLUE}update${NC}"
-brew update
-print "${GREEN}# brew ${BLUE}upgrade${NC}"
-brew upgrade
-print "${GREEN}# brew ${BLUE}cleanup${NC}"
-brew cleanup
-print "${GREEN}# brew ${BLUE}doctor${NC}"
-brew doctor
-print "${GREEN}# rustup ${BLUE}update${NC}"
-rustup update
+runCmd "🍺" brew update
+runCmd "🍻" brew upgrade
+runCmd "🥂" brew cleanup
+runCmd "🍷" brew doctor
+runCmd "🍷" rustup update
+
 ~/z/dev/versions
-print "...${BLUE}# npm install -g npm@latest${NC}"
-print "...${BLUE}# yarn global upgrade${NC}"
-print "...${BLUE}# nvm install node --reinstall-packages-from=node${NC}"
-print "...${BLUE}# rustup show${NC}"
+runCmd "💧" "npm install -g npm@latest"
+runCmd "💧" "yarn global upgrade"
+runCmd "💧" "nvm install node --reinstall-packages-from=node"
