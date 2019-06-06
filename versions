@@ -1,89 +1,111 @@
 #!/bin/zsh
+###########################################
+# Module Versions Checker
+# by Soomin K.
+###########################################
 C_R='\e[0;31m'
 C_G='\e[0;32m'
 C_B='\e[0;34m'
 C_Y='\e[0;33m'
 C_N='\e[0m'
+# Set Module
+# $1: module name
+# $2: L - local, R - remote
+# $3: remote modifier such as @lts
+setM ()
+{
+  if [[ $1 == *"L"* ]]; then
+    VC=`$2 --version`
+  else
+    VC=""
+  fi
+  if [[ $1 == *"R"* ]]; then
+    if [ -z $3 ]; then
+      VL=`npm show $2 version`
+    else
+      VL=`npm show $2$3 version`
+    fi
+  else
+    VL=""
+  fi
+}
 
+# Show Versions
+# $1: title with emoji
+# $2: additional info
 showV ()
 {
   printf "${C_Y}$1${C_G}: "
 
-  if [ -z "${VC}" ]
-  then
+  if [ -z "${VC}" ]; then
     printf "${C_G}✨${VL}"
   else
     printf "${C_N}${VC}"
-    if [ -z "${VL}" ]
-    then
+    if [ -z "${VL}" ]; then
       printf "⚡️"
     else
-      if [ "${VC}" = "${VL}" ]
-      then
+      if [ "${VC}" = "${VL}" ]; then
         printf "✨"
       else
-        printf " ${C_G}${VL}${C_R}🌈New!"
+        printf "✔️  ${C_G}${VL}${C_R}🌈New❗️"
       fi
     fi
   fi
 
-  if [ -z $2 ]
-  then
+  if [ -z $2 ]; then
     print "${C_N}"
   else
     print " ${C_B}$2${C_N}"
   fi
 }
 
+# Header - show color scheme
 print "${C_G}┌──────────┬───────────┬──────────┐"
 print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ │"
 print "${C_G}└──────────┴───────────┴──────────┘"
-VC=`node -v`
-VL="v`npm show node@lts version`"
+
+# Main -- Since it takes time to run each step, show immediately each result
+setM LR node @lts
+VL="v${VL}"
 showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm -ls"
 
-VC=`npm -v`
-VL=`npm show npm version`
+setM LR npm
 showV "🎁 npm     " "[`npm bin -g`]"
 
-VC=`yarn -v`
-VL=`npm show yarn version`
+setM LR yarn
 showV "🧵  yarn    " "[`yarn global bin`]"
 
-VC=`create-react-app --version`
-VL=`npm show create-react-app version`
+setM LR webpack
+showV "📦 webpack " "@next:${C_R}`npm show webpack@next version`"
+
+setM LR create-react-app
 showV "🥐 CRA     " "# create-react-app"
 
-VC=""
-VL=`npm show react version`
+setM R react
 showV "🍙 react   "
 
-VC=""
-VL=`npm show react-scripts version`
+setM R react-scripts
 showV "🍣 scripts " "# react-scripts"
 
-VC=`ruby -v`
-VL=""
+setM R typescript
+showV "🍭 ts      " "# typescript"
+
+setM L ruby
 showV "🔮 ruby    "
 
-VC=`python --version`
-VL=""
+setM L python
 showV "🐍 python  "
 
-VC=`pip3 --version`
-VL=""
+setM L pip3
 showV "🐢 pip     "
-print "             ${C_B}🦎 pip-check for further information${C_N}"
+print "🦎 ${C_B}pip-check for further information${C_N}"
 
-VC=`rustup --version`
-VL=""
+setM L rustup
 showV "💎 rustup  " "# rustup show"
 
-VC=`rustc --version`
-VL=""
+setM L rustc
 showV "⚙️a rustc   "
 
-VC=`cargo --version`
-VL=""
+setM L cargo
 showV "📦 cargo   "
-
+# End

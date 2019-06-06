@@ -3,6 +3,7 @@ C_R='\e[0;31m'
 C_G='\e[0;32m'
 C_B='\e[0;34m'
 C_Y='\e[0;33m'
+C_N='\e[0m'
 BBK='\e[49m'
 BLBK='\e[44m'
 CYBK='\e[46m'
@@ -10,31 +11,33 @@ YBK='\e[43m'
 BK='\e[0;30m'
 WH='\e[0;39m'
 DG='\e[1;30m'
-C_N='\e[0m'
 SP='\e[1;34m'
 TM='\e[1;32m'
 QC='\e[1;35m'
 SY='\e[0;36m'
 DC='\e[0;35m'
-print "  ${SP}╔═╗┌─┐┌─┐┌─┐┌─┐${TM}┌┬┐┬┌┬┐┌─┐${QC}╔═╗"
-print "  ${SP}╚═╗├─┘├─┤│  ├┤ ${TM} │ ││││├┤ ${QC}║═╬╗"
-print "  ${SP}╚═╝┴  ┴ ┴└─┘└─┘${TM} ┴ ┴┴ ┴└─┘${QC}╚═╝╚${DG} Inc, Yokohama & CA 94583, Since 01/07/2019${C_N}"
-print "  ${SY}███████╗██╗   ██╗███╗   ███╗██████╗  ██████╗ ██╗     ██╗ ██████╗${DC}██████╗ ██████╗"
-print "  ${SY}██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔═══██╗██║     ██║██╔════╝${DC}╚════██╗██╔══██╗"
-print "  ${SY}███████╗ ╚████╔╝ ██╔████╔██║██████╔╝██║   ██║██║     ██║██║     ${DC} █████╔╝██║  ██║"
-print "  ${SY}╚════██║  ╚██╔╝  ██║╚██╔╝██║██╔══██╗██║   ██║██║     ██║██║     ${DC} ╚═══██╗██║  ██║"
-print "  ${SY}███████║   ██║   ██║ ╚═╝ ██║██████╔╝╚██████╔╝███████╗██║╚██████╗${DC}██████╔╝██████╔╝"
-print "  ${SY}╚══════╝   ╚═╝   ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═╝ ╚═════╝${DC}╚═════╝ ╚═════╝${C_N}"
-print "  🌌 ${DG}Spacetime and Symbolic Evolution${BK} to Singularity ${C_R}The Pleasure of the Text 📖${C_N}"
+print "${SP}╔═╗┌─┐┌─┐┌─┐┌─┐${TM}┌┬┐┬┌┬┐┌─┐${QC}╔═╗"
+print "${SP}╚═╗├─┘├─┤│  ├┤ ${TM} │ ││││├┤ ${QC}║═╬╗"
+print "${SP}╚═╝┴  ┴ ┴└─┘└─┘${TM} ┴ ┴┴ ┴└─┘${QC}╚═╝╚${DG} Inc, Yokohama & CA 94583, Since 01/07/2019${C_N}"
+print "${SY}███████╗██╗   ██╗███╗   ███╗██████╗  ██████╗ ██╗     ██╗ ██████╗${DC}██████╗ ██████╗"
+print "${SY}██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔═══██╗██║     ██║██╔════╝${DC}╚════██╗██╔══██╗"
+print "${SY}███████╗ ╚████╔╝ ██╔████╔██║██████╔╝██║   ██║██║     ██║██║     ${DC} █████╔╝██║  ██║"
+print "${SY}╚════██║  ╚██╔╝  ██║╚██╔╝██║██╔══██╗██║   ██║██║     ██║██║     ${DC} ╚═══██╗██║  ██║"
+print "${SY}███████║   ██║   ██║ ╚═╝ ██║██████╔╝╚██████╔╝███████╗██║╚██████╗${DC}██████╔╝██████╔╝"
+print "${SY}╚══════╝   ╚═╝   ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═╝ ╚═════╝${DC}╚═════╝ ╚═════╝${C_N}"
+print "${DG}Spacetime and Symbolic Evolution${BK} to Singularity ${C_R}The Pleasure of the Text 📖${C_N}"
 printf "🌏 ${C_B}"
+DST="${C_N}🔅${C_Y}+1${C_N}"
 uptime
 TOKYO=`TZ=":Asia/Tokyo"          date +"%H:%M:%S %a %B %d %Y Yokohama      (UTC+9)"`
 PARIS=`TZ=":Europe/Paris"        date +"%H:%M:%S %a %B %d %Y Paris         (UTC+1)"`
 NEWYK=`TZ=":America/New_York"    date +"%H:%M:%S %a %B %d %Y New York      (UTC-5)"`
 LOSAN=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
 print "🗼 ${BK}${YBK}${TOKYO}${BBK}"
-print "🇫🇷  ${C_R}${PARIS}"
-print "🗽 ${C_G}${NEWYK}"
-print "❤️  ${BK}${BLBK}${LOSAN}${C_N}"
+print "🇫🇷  ${C_R}${PARIS}${DST}"
+print "🗽 ${C_G}${NEWYK}${DST}"
+print "❤️  ${BK}${BLBK}${LOSAN}${DST}"
 cal -3
-print "🔥 ${C_G}TDL: ${C_N}Clockwork, Calendar, Biz={Game, Education, Finance, ${C_R}Messaging${C_N}, Movies}"
+printf "🔥 ${C_G}TDL: ${C_N}Clockwork, Calendar, "
+printf "💰${C_G}{${C_N}Game,${C_G}Education${C_N},${C_B}Finance${C_N},"
+print  "${C_R}Messaging${C_N},${C_Y}Movies${C_G}}${C_N}"
