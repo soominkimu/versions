@@ -19,7 +19,7 @@ runCmd ()
 ~/z/dev/logo
 runCmd "🍺" brew update
 runCmd "🍻" brew upgrade
-runCmd "🥂" brew cleanup
+#runCmd "🥂" brew cleanup
 runCmd "🍷" brew doctor
 runCmd "🍷" rustup update
 
