@@ -27,9 +27,6 @@ setLR ()
   fi
   if [[ $1 == *"R"* ]]; then  # Remote
     VL=`npm show $2$3 version`
-    if [[ $1 == *"v"* ]]; then  # prefix
-      VL="v${VL}"
-    fi
   else
     VL=""
   fi
@@ -50,7 +47,7 @@ showV ()
     if [ -z "${VL}" ]; then
       printf "⚡️"
     else
-      if [ "${VC}" = "${VL}" ]; then
+      if [[ "${VC}" == *"${VL}"* ]]; then
         printf "✨"
       else
         printf "✔️  ${C_G}${VL}${C_R}🌈New❗️"
@@ -71,7 +68,7 @@ print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ �
 print "${C_G}└──────────┴───────────┴──────────┘"
 # =================================================
 # Main -- Since it takes time to run each step, show immediately each result
-setLR LRv node @lts
+setLR LR node @lts
 showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm -ls"
 # -------------------------------------------------
 setLR LR npm
@@ -80,10 +77,10 @@ showV "🎁 npm     " "[`npm bin -g`]"
 setLR LR yarn
 showV "🧵  yarn    " "[`yarn global bin`]"
 # -------------------------------------------------
-setLR LR webpack
-showV "📦 webpack " "@next:${C_R}`npm show webpack@next version`"
+#setLR LR webpack
+#showV "📦 webpack " "@next:${C_R}`npm show webpack@next version`"
 # -------------------------------------------------
-setLR LRv electron
+setLR LR electron
 showV "💡 electron"
 # -------------------------------------------------
 setLR LR create-react-app
@@ -94,6 +91,9 @@ showV "🍙 react   "
 # -------------------------------------------------
 setLR R react-scripts
 showV "🍣 scripts " "# react-scripts"
+# -------------------------------------------------
+setLR LR babel -cli
+showV "🌮 babel   " "# babel-cli"
 # -------------------------------------------------
 setLR R typescript
 showV "🍭 ts      " "# typescript"

@@ -17,6 +17,13 @@ runCmd ()
   fi
 }
 ~/z/dev/logo
+HIST=~/z/update-hist.txt
+printf "⌛️ ${C_B}Last Update: ${C_N}"
+if [ -f $HIST ]; then
+  tail -n 1 $HIST  # print last one line
+else
+  print "${C_R}No history file exists.${C_N}"
+fi
 runCmd "🍺" brew update
 runCmd "🍻" brew upgrade
 #runCmd "🥂" brew cleanup
@@ -27,3 +34,4 @@ runCmd "🍷" rustup update
 runCmd "💧" "npm install -g npm@latest"
 runCmd "💧" "yarn global upgrade"
 runCmd "💧" "nvm install node --reinstall-packages-from=node"
+date +"%H:%M:%S %m/%d/%Y" >> $HIST
