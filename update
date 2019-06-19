@@ -8,10 +8,9 @@ C_N='\e[0m'
 runCmd ()
 {
   printf $1
-  if [ -z $3 ]
-  then
+  if [ -z $3 ]; then     # just print info
     print "${C_B} $2${C_N}"
-  else
+  else                   # run command
     print "${C_G} $2 ${C_B}$3${C_N}"
     $2 $3
   fi

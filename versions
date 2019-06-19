@@ -17,7 +17,7 @@ C_N='\e[0m'
 # -------------------------------------------------
 # argument $1: module name
 # argument $2: L - local, R - remote, v - prefix to compare
-# argument $3: remote modifier such as @lts
+# argument $3: remote modifier such as @lts, -cli
 setLR ()
 {
   if [[ $1 == *"L"* ]]; then  # Local
@@ -40,22 +40,22 @@ showV ()
 {
   printf "${C_Y}$1${C_G}: "
 
-  if [ -z "${VC}" ]; then
+  if [ -z "${VC}" ]; then    # No installed version check, show shiny emoji before version info
     printf "${C_G}✨${VL}"
   else
     printf "${C_N}${VC}"
-    if [ -z "${VL}" ]; then
+    if [ -z "${VL}" ]; then  # No remote version check
       printf "⚡️"
     else
-      if [[ "${VC}" == *"${VL}"* ]]; then
+      if [[ "${VC}" == *"${VL}"* ]]; then  # latest ver contained in installed?
         printf "✨"
       else
-        printf "✔️  ${C_G}${VL}${C_R}🌈New❗️"
+        printf "⚠️  ${C_G}${VL}${C_R}🌈"  # older or newer version installed
       fi
     fi
   fi
 
-  if [ -z $2 ]; then
+  if [ -z $2 ]; then   # No additional info provided
     print "${C_N}"
   else
     print " ${C_B}$2${C_N}"
@@ -100,6 +100,9 @@ showV "🍭 ts      " "# typescript"
 # -------------------------------------------------
 setLR LR sass
 showV "🍒 sass    " "# brew upgrade sass/sass/sass"
+# -------------------------------------------------
+setLR LR gatsby -cli
+showV "💋 gatsby  " "# npm i -g gatsby-cli"
 # -------------------------------------------------
 setLR L ruby
 showV "🔮 ruby    "
