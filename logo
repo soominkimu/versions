@@ -26,17 +26,24 @@ print "${SY}╚════██║  ╚██╔╝  ██║╚██╔╝�
 print "${SY}███████║   ██║   ██║ ╚═╝ ██║██████╔╝╚██████╔╝███████╗██║╚██████╗${DC}██████╔╝██████╔╝"
 print "${SY}╚══════╝   ╚═╝   ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═╝ ╚═════╝${DC}╚═════╝ ╚═════╝${C_N}"
 print "${DG}Spacetime and Symbolic Evolution${BK} to Singularity ${C_R}The Pleasure of the Text 📖${C_N}"
-printf "🌏 ${C_B}"
+printf "🌏 "
+UPTM=`uptime`
+MOON=`curl -s 'wttr.in/Yokohama?format=%m%M'`
+print "${C_B}${UPTM}${C_N} ${MOON}"
+DST="${C_N}    "
+WTTR=`curl -s 'wttr.in/Yokohama?format=+%c+%t💧%h'`
+CITY=`TZ=":Asia/Tokyo"          date +"%H:%M:%S %a %B %d %Y Yokohama      (UTC+9)"`
+print "🗼 ${BK}${YBK}${CITY}${DST} ${C_N}${WTTR}"
 DST="${C_N}🔅${C_Y}+1${C_N}"
-uptime
-TOKYO=`TZ=":Asia/Tokyo"          date +"%H:%M:%S %a %B %d %Y Yokohama      (UTC+9)"`
-PARIS=`TZ=":Europe/Paris"        date +"%H:%M:%S %a %B %d %Y Paris         (UTC+1)"`
-NEWYK=`TZ=":America/New_York"    date +"%H:%M:%S %a %B %d %Y New York      (UTC-5)"`
-LOSAN=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
-print "🗼 ${BK}${YBK}${TOKYO}${BBK}"
-print "🇫🇷  ${C_R}${PARIS}${DST}"
-print "🗽 ${C_G}${NEWYK}${DST}"
-print "❤️  ${BK}${BLBK}${LOSAN}${DST}"
+WTTR=`curl -s 'wttr.in/Paris?format=+%c+%t💧%h'`
+CITY=`TZ=":Europe/Paris"        date +"%H:%M:%S %a %B %d %Y Paris         (UTC+1)"`
+print "🇫🇷  ${C_R}${CITY}${DST} ${C_N}${WTTR}"
+WTTR=`curl -s 'wttr.in/{New York}?format=+%c+%t💧%h'`
+CITY=`TZ=":America/New_York"    date +"%H:%M:%S %a %B %d %Y New York      (UTC-5)"`
+print "🗽 ${C_G}${CITY}${DST} ${C_N}${WTTR}"
+WTTR=`curl -s 'wttr.in/{San Francisco}?format=+%c+%t💧%h'`
+CITY=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
+print "❤️  ${BK}${BLBK}${CITY}${DST} ${C_N}${WTTR}"
 cal -3
 printf "🔥 ${C_G}TDL: ${C_N}Clockwork, Calendar, "
 printf "💰${C_G}{${C_N}Game,${C_G}Education${C_N},${C_B}Finance${C_N},"
