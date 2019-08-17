@@ -45,6 +45,6 @@ WTTR=`curl -s 'wttr.in/San Francisco?format=+%c+%t💧%h'`
 CITY=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
 print "❤️  ${BK}${BLBK}${CITY}${DST} ${C_N}${WTTR}"
 cal -3
-printf "🔥 ${C_G}TDL: ${C_N}Clockwork, Calendar, "
+printf "🔥 ${C_G}TDL: ${C_N}Web Utilities "
 printf "💰${C_G}{${C_N}Game,${C_G}Education${C_N},${C_B}Finance${C_N},"
 print  "${C_R}Messaging${C_N},${C_Y}Movies${C_G}}${C_N}"

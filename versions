@@ -92,6 +92,12 @@ showV "🍙 react   "
 setLR R react-scripts
 showV "🍣 scripts " "# react-scripts"
 # -------------------------------------------------
+setLR R react-redux
+showV "🐤 redux   " "# react-redux"
+# -------------------------------------------------
+setLR R rxjs
+showV "🍡 RxJS    "
+# -------------------------------------------------
 setLR LR babel -cli
 showV "🌮 babel   " "# babel-cli"
 # -------------------------------------------------
@@ -107,8 +113,8 @@ showV "💋 gatsby  " "# npm i -g gatsby-cli"
 setLR L ruby
 showV "🔮 ruby    "
 # -------------------------------------------------
-setLR L python
-showV "🐍 python  "
+setLR L python3
+showV "🐍 python3 "
 # -------------------------------------------------
 setLR L pip3
 showV "🐢 pip     "
