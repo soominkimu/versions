@@ -26,7 +26,11 @@ setLR ()
     VC=""
   fi
   if [[ $1 == *"R"* ]]; then  # Remote
-    VL=`npm show $2$3 version`
+    if [ -z $3 ]; then
+      VL=`npm show $2 version`
+    else
+      VL=`npm show $3 version`
+    fi
   else
     VL=""
   fi
@@ -68,8 +72,8 @@ print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ �
 print "${C_G}└──────────┴───────────┴──────────┘"
 # =================================================
 # Main -- Since it takes time to run each step, show immediately each result
-setLR LR node @lts
-showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm -ls"
+setLR LR node node@lts
+showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm ls"
 # -------------------------------------------------
 setLR LR npm
 showV "🎁 npm     " "[`npm bin -g`]"
@@ -98,17 +102,20 @@ showV "🐤 redux   " "# react-redux"
 setLR R rxjs
 showV "🍡 RxJS    "
 # -------------------------------------------------
-setLR LR babel -cli
+setLR LR babel babel-cli
 showV "🌮 babel   " "# babel-cli"
 # -------------------------------------------------
-setLR R typescript
-showV "🍭 ts      " "# typescript"
+setLR LR eslint
+showV "🍬 eslint  "
+# -------------------------------------------------
+setLR LR tsc typescript
+showV "🍭 tsc     " "# typescript"
 # -------------------------------------------------
 setLR LR sass
 showV "🍒 sass    " "# brew upgrade sass/sass/sass"
 # -------------------------------------------------
-setLR LR gatsby -cli
-showV "💋 gatsby  " "# npm i -g gatsby-cli"
+setLR LR gatsby gatsby-cli
+showV "💋 gatsby  " "# yarn global add gatsby-cli"
 # -------------------------------------------------
 setLR L ruby
 showV "🔮 ruby    "
