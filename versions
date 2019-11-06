@@ -112,7 +112,7 @@ setLR LR tsc typescript
 showV "🍭 tsc     " "# typescript"
 # -------------------------------------------------
 setLR LR sass
-showV "🍒 sass    " "# brew upgrade sass/sass/sass"
+showV "🍒 sass    " "# yarn global add sass"
 # -------------------------------------------------
 setLR LR gatsby gatsby-cli
 showV "💋 gatsby  " "# yarn global add gatsby-cli"
