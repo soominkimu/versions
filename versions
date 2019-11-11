@@ -99,6 +99,9 @@ showV "🍣 scripts " "# react-scripts"
 setLR R react-redux
 showV "🐤 redux   " "# react-redux"
 # -------------------------------------------------
+setLR R react-native
+showV "📱 r-native" "# react-native"
+# -------------------------------------------------
 setLR R rxjs
 showV "🍡 RxJS    "
 # -------------------------------------------------
