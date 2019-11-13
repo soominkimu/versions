@@ -102,6 +102,12 @@ showV "🐤 redux   " "# react-redux"
 setLR R react-native
 showV "📱 r-native" "# react-native"
 # -------------------------------------------------
+setLR R flow-bin
+showV "🍫 flow    " "# yarn add --dev flow-bin"
+# -------------------------------------------------
+setLR R webpack
+showV "🛍  webpack "
+# -------------------------------------------------
 setLR R rxjs
 showV "🍡 RxJS    "
 # -------------------------------------------------
@@ -113,6 +119,9 @@ showV "🍬 eslint  "
 # -------------------------------------------------
 setLR LR tsc typescript
 showV "🍭 tsc     " "# typescript"
+# -------------------------------------------------
+setLR L dart
+showV "🎯 dart    " "# brew info dart"
 # -------------------------------------------------
 setLR LR sass
 showV "🍒 sass    " "# yarn global add sass"
@@ -138,4 +147,7 @@ showV "⚙️a rustc   "
 # -------------------------------------------------
 setLR L cargo
 showV "📦 cargo   "
+# -------------------------------------------------
+setLR L flutter
+showV "🐝 flutter " "# flutter doctor"
 # End
