@@ -79,7 +79,7 @@ setLR LR npm
 showV "🎁 npm     " "[`npm bin -g`]"
 # -------------------------------------------------
 setLR LR yarn
-showV "🧵  yarn    " "[`yarn global bin`]"
+showV "🧵 yarn    " "[`yarn global bin`]"
 # -------------------------------------------------
 #setLR LR webpack
 #showV "📦 webpack " "@next:${C_R}`npm show webpack@next version`"
@@ -132,8 +132,8 @@ showV "💋 gatsby  " "# yarn global add gatsby-cli"
 setLR L ruby
 showV "🔮 ruby    "
 # -------------------------------------------------
-setLR L python3
-showV "🐍 python3 "
+setLR L python
+showV "🐍 python  "
 # -------------------------------------------------
 setLR L pip3
 showV "🐢 pip     "
@@ -149,5 +149,21 @@ setLR L cargo
 showV "📦 cargo   "
 # -------------------------------------------------
 setLR L flutter
-showV "🐝 flutter " "# flutter doctor"
+showV "🐝 flutter " "# flutter upgrade"
+# -------------------------------------------------
+VC=`xcodebuild -version`
+showV "🛠  xcode   " "# xcodebuild"
+# -------------------------------------------------
+setLR L swift
+showV "🐦 swift   "
+# -------------------------------------------------
+VC=`kotlin -version`
+showV "🦋 kotlin  " "# brew install kotlin"
+# -------------------------------------------------
+VC=`firebase --version`
+showV "🔥 firebase"
+# -------------------------------------------------
+VC=''
+showV "☕️ java    "
+java -version
 # End

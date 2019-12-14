@@ -28,6 +28,7 @@ runCmd "🍻" brew upgrade
 runCmd "🥂" brew cleanup
 runCmd "🍷" brew doctor
 runCmd "🍷" rustup update
+runCmd "🐝" flutter upgrade
 
 ~/z/dev/versions
 runCmd "💧" "npm install -g npm@latest"
