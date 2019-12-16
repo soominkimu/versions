@@ -32,6 +32,7 @@ runCmd "🐝" flutter upgrade
 
 ~/z/dev/versions
 runCmd "💧" "npm install -g npm@latest"
+runCmd "💧" "npm doctor"
 runCmd "💧" "yarn global upgrade"
 runCmd "💧" "nvm install node --reinstall-packages-from=node"
 date +"%H:%M:%S %m/%d/%Y" >> $HIST

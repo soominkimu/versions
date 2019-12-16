@@ -161,7 +161,7 @@ VC=`kotlin -version`
 showV "🦋 kotlin  " "# brew install kotlin"
 # -------------------------------------------------
 VC=`firebase --version`
-showV "🔥 firebase"
+showV "🔥 firebase" "# yarn global add firebase-tools"
 # -------------------------------------------------
 VC=''
 showV "☕️ java    "
