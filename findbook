@@ -3,5 +3,5 @@ if [[ $# -ne 1 ]]
 then 
     echo Need to specify search text 
 else 
-    find ~/BOOKS -iname "*$1*" | rg -i $1
+    find ~/BOOKS -iname "*$1*"
 fi

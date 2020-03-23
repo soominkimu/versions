@@ -15,6 +15,7 @@ runCmd ()
     $2 $3
   fi
 }
+neofetch
 ~/z/dev/logo
 HIST=~/z/update-hist.txt
 printf "⌛️ ${C_B}Last Update: ${C_N}"
@@ -35,4 +36,6 @@ runCmd "💧" "npm install -g npm@latest"
 runCmd "💧" "npm doctor"
 runCmd "💧" "yarn global upgrade"
 runCmd "💧" "nvm install node --reinstall-packages-from=node"
+runCmd "💧" "pip-check # pip install --upgrade ..."
 date +"%H:%M:%S %m/%d/%Y" >> $HIST
+istats

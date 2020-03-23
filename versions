@@ -75,6 +75,9 @@ print "${C_G}└──────────┴──────────�
 setLR LR node node@lts
 showV "🍏 node    " "${C_R}`npm show node@latest version`🌈 ${C_B}# nvm ls"
 # -------------------------------------------------
+setLR LR ts-node
+showV "🍋 ts-node " "TypeScript execution and REPL for node.js"
+# -------------------------------------------------
 setLR LR npm
 showV "🎁 npm     " "[`npm bin -g`]"
 # -------------------------------------------------
@@ -110,6 +113,9 @@ showV "🛍  webpack "
 # -------------------------------------------------
 setLR R rxjs
 showV "🍡 RxJS    "
+# -------------------------------------------------
+setLR R babylonjs
+showV "🧬 Babylon " "# babylonjs"
 # -------------------------------------------------
 setLR LR babel babel-cli
 showV "🌮 babel   " "# babel-cli"
