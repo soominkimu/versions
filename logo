@@ -1,4 +1,9 @@
-#!/bin/zsh
+#!/bin/sh
+###########################################
+# Splash Screen: Logo (/etc/motd for MacBook)
+# by Soomin K.
+###########################################
+# ~/z/dev/versions
 C_R='\e[0;31m'
 C_G='\e[0;32m'
 C_B='\e[0;34m'

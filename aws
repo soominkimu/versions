@@ -6,4 +6,4 @@ else
 	port=443  # use HTTPS port instead
 fi
 echo "Connecting AWS EC2 🖥️  😘  using port=$port"
-ssh -i "~/.ssh/spacetimeq.pem" ubuntu@ec2-13-57-218-239.us-west-1.compute.amazonaws.com -p $port
+ssh aws -p $port

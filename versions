@@ -1,8 +1,9 @@
-#!/bin/zsh
+#!/bin/sh
 ###########################################
-# Module Versions Checker
+# Module Versions Checker: Compares locally installed versions with the remote (recent) version info
 # by Soomin K.
 ###########################################
+# ~/z/dev/logo
 C_R='\e[0;31m'
 C_G='\e[0;32m'
 C_B='\e[0;34m'
@@ -17,15 +18,15 @@ C_N='\e[0m'
 # -------------------------------------------------
 # argument $1: module name
 # argument $2: L - local, R - remote, v - prefix to compare
-# argument $3: remote modifier such as @lts, -cli
+# argument $3: remote module name (when it's different from the local)
 setLR ()
 {
-  if [[ $1 == *"L"* ]]; then  # Local
+  if [[ $1 == *"L"* ]]; then  # Local version info
     VC=`$2 --version`
   else
     VC=""
   fi
-  if [[ $1 == *"R"* ]]; then  # Remote
+  if [[ $1 == *"R"* ]]; then  # Remote version info
     if [ -z $3 ]; then
       VL=`npm show $2 version`
     else
@@ -166,10 +167,13 @@ showV "🐦 swift   "
 VC=`kotlin -version`
 showV "🦋 kotlin  " "# brew install kotlin"
 # -------------------------------------------------
-VC=`firebase --version`
+setLR LR firebase firebase-tools
 showV "🔥 firebase" "# yarn global add firebase-tools"
 # -------------------------------------------------
 VC=''
 showV "☕️ java    "
 java -version
+# -------------------------------------------------
+python -m site --user-site
+python -m pip list | rg tensorflow
 # End

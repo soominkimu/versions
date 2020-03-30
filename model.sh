@@ -1,4 +1,5 @@
 #!/bin/sh
+# print the model spec.
 curl -s https://support-sp.apple.com/sp/product?cc=$(
 system_profiler SPHardwareDataType \
     | awk '/Serial/ {print $4}' \
