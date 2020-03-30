@@ -1,9 +1,0 @@
-#!/bin/zsh
-if [[ $# -ne 1 ]]
-then
-	port=22   # default ssh port
-else
-	port=443  # use HTTPS port instead
-fi
-echo "Connecting AWS EC2 🖥️  😘  using port=$port"
-ssh -i "~/.ssh/DashgonLab.pem" ubuntu@ec2-18-219-152-226.us-east-2.compute.amazonaws.com -p $port

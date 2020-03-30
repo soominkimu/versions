@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 #############################################
 # Change Directory to Current saved dir
 # by Soomin K.

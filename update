@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 C_R='\e[0;31m'
 C_G='\e[0;32m'
 C_B='\e[0;34m'
