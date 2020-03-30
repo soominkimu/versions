@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 ###########################################
 # Splash Screen: Logo (/etc/motd for MacBook)
 # by Soomin K.

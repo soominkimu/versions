@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 ###########################################
 # Module Versions Checker: Compares locally installed versions with the remote (recent) version info
 # by Soomin K.
