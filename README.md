@@ -1,3 +1,3 @@
 # versions
 
-![Screenshot of versions](versions02.png)
+![Screenshot of versions](https://github.com/soominkimu/versions/blob/master/version02.png)
