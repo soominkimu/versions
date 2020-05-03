@@ -10,5 +10,6 @@
 ## Requirements
 * zsh
 * brew, npm, python, pip
-* brew install neofetch
-* sudo gem install iStats
+  * brew install ripgrep
+  * brew install neofetch
+  * sudo gem install iStats

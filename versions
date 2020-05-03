@@ -12,8 +12,8 @@ C_Y='\e[0;33m'
 C_N='\e[0m'
 # Following two variables will contain the version info and will be compared in showV()
 # -------------------------------------------------
-# VC: Version Current (local installed)
-# VL: Version Latest (Remote)
+# VL: Version Local (locally installed)
+# VR: Version Remote (from remote server)
 # =================================================
 # Set Module Info
 # -------------------------------------------------
@@ -23,18 +23,22 @@ C_N='\e[0m'
 setLR ()
 {
   if [[ $1 == *"L"* ]]; then  # Local version info
-    VC=`$2 --version`
-  else
-    VC=""
-  fi
-  if [[ $1 == *"R"* ]]; then  # Remote version info
-    if [ -z $3 ]; then
-      VL=`npm show $2 version`
+    if [[ ! -z `command -v $2` ]]; then  # command exists
+      VL=`$2 --version`
     else
-      VL=`npm show $3 version`
+      VL="${C_R}$2${C_G} NOT installed!${C_N}"
     fi
   else
     VL=""
+  fi
+  if [[ $1 == *"R"* ]]; then  # Remote version info
+    if [ -z $3 ]; then
+      VR=`npm show $2 version`
+    else
+      VR=`npm show $3 version`
+    fi
+  else
+    VR=""
   fi
 }
 # =================================================
@@ -46,17 +50,17 @@ showV ()
 {
   printf "${C_Y}$1${C_G}: "
 
-  if [ -z "${VC}" ]; then    # No installed version check, show shiny emoji before version info
-    printf "${C_G}✨${VL}"
+  if [ -z "${VL}" ]; then    # If null: No installed version check, show shiny emoji before version info
+    printf "${C_G}✨${VR}"
   else
-    printf "${C_N}${VC}"
-    if [ -z "${VL}" ]; then  # No remote version check
+    printf "${C_N}${VL}"
+    if [ -z "${VR}" ]; then  # No remote version check
       printf "⚡️"
     else
-      if [[ "${VC}" == *"${VL}"* ]]; then  # latest ver contained in installed?
+      if [[ "${VL}" == *"${VR}"* ]]; then  # latest ver contained in installed?
         printf "✨"
       else
-        printf "⚠️  ${C_G}${VL}${C_R}🌈"  # older or newer version installed
+        printf "⚠️  ${C_G}${VR}${C_R}🌈"  # older or newer version installed
       fi
     fi
   fi
@@ -128,14 +132,11 @@ showV "🍬 eslint  "
 setLR LR tsc typescript
 showV "🍭 tsc     " "# typescript"
 # -------------------------------------------------
-setLR L dart
-showV "🎯 dart    " "# brew info dart"
-# -------------------------------------------------
 setLR LR sass
 showV "🍒 sass    " "# yarn global add sass"
 # -------------------------------------------------
 setLR LR gatsby gatsby-cli
-showV "💋 gatsby  " "# yarn global add gatsby-cli"
+showV "💋 gatsby  " "# yarn global add gatsby gatsby-cli"
 # -------------------------------------------------
 setLR L ruby
 showV "🔮 ruby    "
@@ -144,37 +145,59 @@ setLR L python
 showV "🐍 python  "
 # -------------------------------------------------
 setLR L pip3
-showV "🐢 pip     "
-print "🦎 ${C_B}pip-check for further information${C_N}"
+showV "🐢 pip     " "# pip check"
 # -------------------------------------------------
-setLR L rustup
+setLR L rustup1
 showV "💎 rustup  " "# rustup show"
 # -------------------------------------------------
 setLR L rustc
-showV "⚙️a rustc   "
+showV "⚙️  rustc   "
 # -------------------------------------------------
 setLR L cargo
 showV "📦 cargo   "
 # -------------------------------------------------
+VL=`go version`
+showV "👻 go      " "# https://golang.org/dl/"
+# -------------------------------------------------
+setLR L bazel
+showV "🤖 bazel   " "# brew info bazel"
+# -------------------------------------------------
+VL=``
+showV "🎯 dart    " "# brew upgrade dart"
+dart --version
+# -------------------------------------------------
 setLR L flutter
 showV "🐝 flutter " "# flutter upgrade"
 # -------------------------------------------------
-VC=`xcodebuild -version`
+VL=`xcodebuild -version`
 showV "🛠  xcode   " "# xcodebuild"
 # -------------------------------------------------
 setLR L swift
 showV "🐦 swift   "
 # -------------------------------------------------
-VC=`kotlin -version`
+VL=`kotlin -version`
 showV "🦋 kotlin  " "# brew install kotlin"
+# -------------------------------------------------
+setLR L aws
+showV "👾 aws CLI " "# aws ec2 describe-instances"
 # -------------------------------------------------
 setLR LR firebase firebase-tools
 showV "🔥 firebase" "# yarn global add firebase-tools"
 # -------------------------------------------------
-VC=''
+setLR L gcloud
+showV "🌩  GCP CLI " "# gcloud components update"
+# -------------------------------------------------
+setLR L docker
+showV "🐳 docker  " "# https://hub.docker.com/"
+# -------------------------------------------------
+VL=`kubectl version`
+showV "⛵ k8s     " "# kubernetes; kubectl"
+# -------------------------------------------------
+VL=''
 showV "☕️ java    "
 java -version
 # -------------------------------------------------
-python -m site --user-site
+VL=`python -m site --user-site`
+print "${C_Y}Python -m site --user-site: ${C_G}${VL}${C_N}"
 python -m pip list | rg tensorflow
 # End
