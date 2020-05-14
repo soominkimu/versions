@@ -18,11 +18,11 @@ runCmd ()
 neofetch
 ~/z/dev/logo
 HIST=~/z/update-hist.txt
-printf "⌛️ ${C_B}Last Update: ${C_N}"
+printf "⌛️ ${C_Y}Last Update: "
 if [ -f $HIST ]; then
   tail -n 1 $HIST  # print last one line
 else
-  print "${C_R}No history file exists.${C_N}"
+  print "${C_R}No Update History available.${C_N}"
 fi
 runCmd "🍺" brew update
 runCmd "🍻" brew upgrade
@@ -31,11 +31,11 @@ runCmd "🍷" brew doctor
 runCmd "🍷" rustup update
 runCmd "🐝" flutter upgrade
 
+date +"%H:%M:%S %m/%d/%Y" >> $HIST
 ~/z/dev/versions
 runCmd "💧" "npm install -g npm@latest"
 runCmd "💧" "npm doctor"
 runCmd "💧" "yarn global upgrade"
 runCmd "💧" "nvm install node --reinstall-packages-from=node"
 runCmd "💧" "pip-check # pip install --upgrade ..."
-date +"%H:%M:%S %m/%d/%Y" >> $HIST
 istats

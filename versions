@@ -73,8 +73,14 @@ showV ()
 }
 # =================================================
 # Header - show color scheme
-print "${C_G}┌──────────┬───────────┬──────────┐"
-print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ │"
+HIST=~/z/update-hist.txt
+if [ -f $HIST ]; then
+  UD_Last=`tail -n 1 $HIST`  # print last one line
+else
+  UD_Last="${C_R}No Update Record${C_Y} -"
+fi
+print "${C_G}┌──────────┬───────────┬──────────┐ ${C_Y}${UD_Last} Last Update"
+print "${C_G}│ ${C_Y}Versions${C_G} │ ${C_N}Installed${C_G} │ Latest✨ │ `date +'%T %m/%d/%Y'` Current"
 print "${C_G}└──────────┴───────────┴──────────┘"
 # =================================================
 # Main -- Since it takes time to run each step, show immediately each result
@@ -147,7 +153,7 @@ showV "🐍 python  "
 setLR L pip3
 showV "🐢 pip     " "# pip check"
 # -------------------------------------------------
-setLR L rustup1
+setLR L rustup
 showV "💎 rustup  " "# rustup show"
 # -------------------------------------------------
 setLR L rustc
@@ -181,16 +187,19 @@ showV "🦋 kotlin  " "# brew install kotlin"
 setLR L aws
 showV "👾 aws CLI " "# aws ec2 describe-instances"
 # -------------------------------------------------
+setLR L gcloud
+showV "🌩  GCP CLI " "# gcloud components update"
+# -------------------------------------------------
 setLR LR firebase firebase-tools
 showV "🔥 firebase" "# yarn global add firebase-tools"
 # -------------------------------------------------
-setLR L gcloud
-showV "🌩  GCP CLI " "# gcloud components update"
+setLR LR clasp @google/clasp
+showV "🪐 clasp   " "# yarn global add @google/clasp (CL Apps Script)"
 # -------------------------------------------------
 setLR L docker
 showV "🐳 docker  " "# https://hub.docker.com/"
 # -------------------------------------------------
-VL=`kubectl version`
+VL=`kubectl version --client`
 showV "⛵ k8s     " "# kubernetes; kubectl"
 # -------------------------------------------------
 VL=''

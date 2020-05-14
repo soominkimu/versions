@@ -1,12 +1,54 @@
 #!/bin/sh
-if [[ $# -lt 1 ]] 
-then 
-  echo Need to specify search text
-else 
-  printf "\e[34m⌘+Click will open the file:\e[0m"
-  echo
+# findbook for macOS: by Soomin K.
+# 1. Gives an example of the regex syntax for macOS
+# 2. Use find to list and rg to highlight the keywords given as arguments
+
+###################### Set the root directory for the book files
+PATH_BOOKS=~/BOOKS
+######################
+setExStr ()
+{
+  ex_str="${C_Y}find${C_N} ${C_G}-E${C_N} ${PATH_BOOKS} -type f ${C_G}-iregex${C_N} \".*(${C_B}geometry${C_N}.*${C_B}physics${C_N}).*\" | ${C_Y}rg${C_N} -i \"${C_B}geometry|physics${C_N}\""
+}
+
+# color definitions, no color use
+C_R=
+C_G=
+C_B=
+C_Y=
+C_N=
+ex_str=
+setExStr
+# copy to the clipboard with no color code, so that the user can paste to edit
+printf "${ex_str}" | pbcopy
+
+# color definitions
+C_R='\e[31m'
+C_G='\e[32m'
+C_B='\e[34m'
+C_Y='\e[33m'
+C_N='\e[0m'
+setExStr
+
+if [[ $# -lt 1 ]]; then
+  printf "fb - findbook utility: ${C_R}Need to specify search text as arguments (AND conditions)${C_N} or ⌘v to paste the example.\n"
+else
+  # IFS: Internal Field Separator - how to do word splitting
   oldIFS="$IFS"
+  # to replace whitespaces with * for the find search pattern
   IFS='*'
-  find ~/BOOKS -type f -iname "*$**"
+  ###################################################
+  res=`find "${PATH_BOOKS}" -type f -iname "*$**"`  # -type d  for directory
+  ###################################################
+  if [[ -z $res ]]; then
+    printf "${C_R}No matching results found.${C_N} "
+  else
+    # to replace whitespaces with | (or) for the rg search pattern
+    IFS='|'
+    echo $res | rg -i "$*"
+    printf "${C_B}⌘click to open the file.${C_N} "
+  fi
   IFS=$oldIFS
 fi
+# now print with color
+printf "${ex_str}\n"
