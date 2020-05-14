@@ -6,21 +6,10 @@
 ###################### Set the root directory for the book files
 PATH_BOOKS=~/BOOKS
 ######################
-setExStr ()
-{
-  ex_str="${C_Y}find${C_N} ${C_G}-E${C_N} ${PATH_BOOKS} -type f ${C_G}-iregex${C_N} \".*(${C_B}geometry${C_N}.*${C_B}physics${C_N}).*\" | ${C_Y}rg${C_N} -i \"${C_B}geometry|physics${C_N}\""
-}
-
-# color definitions, no color use
-C_R=
-C_G=
-C_B=
-C_Y=
-C_N=
+# declarations for the template (example) strings
+ex_find=
+ex_rg=
 ex_str=
-setExStr
-# copy to the clipboard with no color code, so that the user can paste to edit
-printf "${ex_str}" | pbcopy
 
 # color definitions
 C_R='\e[31m'
@@ -28,11 +17,21 @@ C_G='\e[32m'
 C_B='\e[34m'
 C_Y='\e[33m'
 C_N='\e[0m'
-setExStr
 
 if [[ $# -lt 1 ]]; then
   printf "fb - findbook utility: ${C_R}Need to specify search text as arguments (AND conditions)${C_N} or ⌘v to paste the example.\n"
+  ex_find="geometry.*physics"
+  ex_rg="geometry|physics"
 else
+  for a in "$@"; do
+    if [[ -z $ex_find ]]; then
+      ex_find="$a"
+      ex_rg="$a"
+    else
+      ex_find="$ex_find.*$a"
+      ex_rg="$ex_rg|$a"
+    fi
+  done
   # IFS: Internal Field Separator - how to do word splitting
   oldIFS="$IFS"
   # to replace whitespaces with * for the find search pattern
@@ -50,5 +49,7 @@ else
   fi
   IFS=$oldIFS
 fi
+# copy to the clipboard with no color code, so that the user can paste to edit, using ripgrep just for highlighting
+printf "find -E /Users/smk/BOOKS -type f -iregex \".*($ex_find).*\" | rg -i \"$ex_rg\"" | pbcopy
 # now print with color
-printf "${ex_str}\n"
+printf "${C_Y}find${C_N} ${C_G}-E${C_N} ${PATH_BOOKS} -type f ${C_G}-iregex${C_N} \".*(${C_B}${ex_find}${C_N}).*\" | ${C_Y}rg${C_N} -i \"${C_B}${ex_rg}${C_N}\"\n"
