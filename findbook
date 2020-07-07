@@ -18,8 +18,15 @@ C_B='\e[34m'
 C_Y='\e[33m'
 C_N='\e[0m'
 
+print_path()
+{
+  printf "${C_G}"
+  ls ${PATH_BOOKS}
+}
+
 if [[ $# -lt 1 ]]; then
-  printf "fb - findbook utility: ${C_R}Need to specify search text as arguments (AND conditions)${C_N} or ⌘v to paste the example.\n"
+  print_path
+  printf "${C_N}fb - findbook utility: ${C_R}Need to specify search text as arguments (AND conditions)${C_N} or ⌘v to paste the example.\n"
   ex_find="geometry.*physics"
   ex_rg="geometry|physics"
 else
@@ -40,6 +47,7 @@ else
   res=`find "${PATH_BOOKS}" -type f -iname "*$**"`  # -type d  for directory
   ###################################################
   if [[ -z $res ]]; then
+    print_path
     printf "${C_R}No matching results found.${C_N} "
   else
     # to replace whitespaces with | (or) for the rg search pattern

@@ -187,14 +187,17 @@ showV "🦋 kotlin  " "# brew install kotlin"
 setLR L aws
 showV "👾 aws CLI " "# aws ec2 describe-instances"
 # -------------------------------------------------
+setLR L sam
+showV "😺 sam CLI " "# brew upgrade aws-sam-cli (Serverless Application Model)"
+# -------------------------------------------------
 setLR L gcloud
 showV "🌩  GCP CLI " "# gcloud components update"
 # -------------------------------------------------
-setLR LR firebase firebase-tools
-showV "🔥 firebase" "# yarn global add firebase-tools"
-# -------------------------------------------------
 setLR LR clasp @google/clasp
 showV "🪐 clasp   " "# yarn global add @google/clasp (CL Apps Script)"
+# -------------------------------------------------
+setLR LR firebase firebase-tools
+showV "🔥 firebase" "# yarn global add firebase-tools"
 # -------------------------------------------------
 setLR L docker
 showV "🐳 docker  " "# https://hub.docker.com/"
