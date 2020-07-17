@@ -117,9 +117,6 @@ showV "🐤 redux   " "# react-redux"
 setLR R react-native
 showV "📱 r-native" "# react-native"
 # -------------------------------------------------
-setLR R flow-bin
-showV "🍫 flow    " "# yarn add --dev flow-bin"
-# -------------------------------------------------
 setLR R webpack
 showV "🛍  webpack "
 # -------------------------------------------------
@@ -185,7 +182,7 @@ VL=`kotlin -version`
 showV "🦋 kotlin  " "# brew install kotlin"
 # -------------------------------------------------
 setLR L aws
-showV "👾 aws CLI " "# aws ec2 describe-instances"
+showV "👾 aws CLI " "# brew install awscli; aws ec2 describe-instances; pip install -U aws-shell"
 # -------------------------------------------------
 setLR L sam
 showV "😺 sam CLI " "# brew upgrade aws-sam-cli (Serverless Application Model)"

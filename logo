@@ -48,8 +48,8 @@ print "🇫🇷  ${C_R}${CITY}${DST} ${C_N}${WTTR}"
 WTTR=`curl -s 'wttr.in/New York?format=+%c+%t💧%h'`
 CITY=`TZ=":America/New_York"    date +"%H:%M:%S %a %B %d %Y New York      (UTC-5)"`
 print "🗽 ${C_G}${CITY}${DST} ${C_N}${WTTR}"
-WTTR=`curl -s 'wttr.in/San Francisco?format=+%c+%t💧%h'`
-CITY=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y San Francisco (UTC-8)"`
+WTTR=`curl -s 'wttr.in/Santa Monica?format=+%c+%t💧%h'`
+CITY=`TZ=":America/Los_Angeles" date +"%H:%M:%S %a %B %d %Y Santa Monica  (UTC-8)"`
 print "❤️  ${BK}${BLBK}${CITY}${DST} ${C_N}${WTTR}"
 cal -3
 printf "🔥 ${C_G}TDL: ${C_N}Web Utilities "
