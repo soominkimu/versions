@@ -1,13 +1,15 @@
-#!/bin/sh
-C_R='\e[0;31m'
-C_G='\e[0;32m'
-C_B='\e[0;34m'
-C_Y='\e[0;33m'
+#!/bin/zsh
+# listvimsessions: by Soomin K.
+# List vim sessions and copy the command to the clipboard
+# color definitions
+C_R='\e[31m'
+C_G='\e[32m'
+C_B='\e[34m'
+C_Y='\e[33m'
 C_N='\e[0m'
-
-################## Set the session folder for vim
-SESSION_DIR=~/.vim/sessions
-##################
-print "${C_G}${SESSION_DIR}${C_N}"
-ls -l ${SESSION_DIR}
-printf "v -S ${SESSION_DIR}/" | pbcopy
+DATE=`date`
+VCMD="v -S ~/.vim/sess/" 
+print "${C_Y}List Vim Sessions${C_G} ${DATE}${C_N}"
+ls -l ~/.vim/sess/
+printf ${VCMD} | pbcopy
+print "${C_B}⌘v to paste the vim command${C_G} ${VCMD}${C_N}"

@@ -185,7 +185,7 @@ setLR L aws
 showV "👾 aws CLI " "# brew install awscli; aws ec2 describe-instances; pip install -U aws-shell"
 # -------------------------------------------------
 setLR L sam
-showV "😺 sam CLI " "# brew upgrade aws-sam-cli (Serverless Application Model)"
+showV "😺 sam CLI " "# brew tap aws/tap; brew upgrade aws-sam-cli (Serverless Application Model)"
 # -------------------------------------------------
 setLR L gcloud
 showV "🌩  GCP CLI " "# gcloud components update"
@@ -200,7 +200,7 @@ setLR L docker
 showV "🐳 docker  " "# https://hub.docker.com/"
 # -------------------------------------------------
 VL=`kubectl version --client`
-showV "⛵ k8s     " "# kubernetes; kubectl"
+showV "⛵ k8s     " "# kubernetes; brew install kubectl"
 # -------------------------------------------------
 VL=''
 showV "☕️ java    "

@@ -1,0 +1,7 @@
+#!/bin/sh
+# Blender CLI to check the console outputs
+# (C) Soomin K., SpacetimeQ Inc.
+# Copy this file to ~/.local/bin/blender
+cd /Applications/Blender.app/Contents/MacOS
+pwd
+./Blender
